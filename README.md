@@ -1,7 +1,9 @@
-﻿Comparison of Decimal floating point and Binary floating point precision
+# Comparison between decimal floating point and binary floating point calculations
 
-First, we repeatedly add `.93` and `.99` to two different initial quantities and then subtract
-them from each other. The result should be equal to the difference between the initial quantities,
+In the first test, we start with two different numbers, a minuend and a subtrahend with an initial difference
+of 10,000. We then repeatedly add `.93` to the minuend 30.7 million times and `.99` to the subtrahend 28.8
+million times, so that both numbers should still have a difference 10,000, and subtract the subtrahend from
+the minuend. The result should be equal to the initial difference (10,000),
 however the `double` amount is off by a little less than `0.01 `.
 
 ```
@@ -38,7 +40,7 @@ Full:     5004860625374122.6282311184
 double:   5004860625372520.0000000000
 ```
 
-We now use these same generated numbers to calculate the mean with 3 different algorithm:
+We now use these same generated numbers to calculate the mean with 3 different algorithms:
 - Cumulative - adds each number to the mean individually, useful if the total count of numbers is unknown
 - Partial - divides each number by the total count first, then adds it to the mean
 - Simple - typical averaging method, add up all the numbers then divide by the total count
